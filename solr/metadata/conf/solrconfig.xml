@@ -12,25 +12,29 @@
 
 <config>
 
-	<luceneMatchVersion>LUCENE_40</luceneMatchVersion>
+	<luceneMatchVersion>5.3.0</luceneMatchVersion>
 
-	<lib dir="../../dist-4.2.1/" regex="apache-solr-cell-\d.*\.jar" />
-	<lib dir="../../contrib-4.2.1/extraction/lib" regex=".*\.jar" />
 
-	<lib dir="../../dist-4.2.1/" regex="apache-solr-clustering-\d.*\.jar" />
-	<lib dir="../../contrib-4.2.1/clustering/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/contrib/extraction/lib" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-cell-\d.*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-dataimporthandler-\d.*\.jar" />
 
-	<lib dir="../../dist-4.2.1/" regex="apache-solr-langid-\d.*\.jar" />
-	<lib dir="../../contrib-4.2.1/langid/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/contrib/clustering/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-clustering-\d.*\.jar" />
 
-	<lib dir="../../dist-4.2.1/" regex="apache-solr-velocity-\d.*\.jar" />
-	<lib dir="../../contrib-4.2.1/velocity/lib" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/contrib/langid/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-langid-\d.*\.jar" />
+
+	<lib dir="${solr.install.dir}/contrib/velocity/lib" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-velocity-\d.*\.jar" />
+	<!-- an exact 'path' can be used instead of a 'dir' to specify a specific 
+		jar file. This will cause a serious error to be logged if it can't be loaded. -->
+	<!-- <lib path="../a-jar-that-does-not-exist.jar" /> -->
 
 	<!-- Data Directory Used to specify an alternate directory to hold all index 
 		data other than the default ./data under the Solr home. If replication is 
 		in use, this should match the replication configuration. -->
-<!-- 	<dataDir>${solr.data.dir:}</dataDir>
- -->
+	<dataDir>${solr.data.dir:}</dataDir>
 
 	<!-- The DirectoryFactory to use for indexes. solr.StandardDirectoryFactory 
 		is filesystem based and tries to pick the best implementation for the current 
@@ -460,18 +464,13 @@
 			<str name="facet.field">public_cible_détaillé-taxon</str>
 			<str name="facet.mincount">1</str>
 			<!-- TODO review range facetting parameters -->
-<!-- 			<str name="facet.range">technical.size</str>
-			<str name="f.technical.size.facet.range.start">0</str>
-			<str name="f.technical.size.facet.range.end">40000000</str>
-			<str name="f.technical.size.facet.range.gap">1000</str>
-			<str name="facet.range">lifecycle.date.author</str>
-			<str name="f.lifecycle.date.author.facet.range.start">NOW/YEAR-10YEARS</str>
-			<str name="f.lifecycle.date.author.facet.range.end">NOW/YEAR</str>
-			<str name="f.lifecycle.date.author.facet.range.gap">+1YEAR</str>
-			<str name="facet.range">educational.typicallearningtime</str>
-			<str name="f.educational.typicallearningtime.facet.range.start">2012-12-12T00:00:00Z</str>
-			<str name="f.educational.typicallearningtime.facet.range.end">2012-12-12T12:00:00Z</str>
-			<str name="f.educational.typicallearningtime.facet.range.gap">+30MINUTES</str> -->
+			<!-- <str name="facet.range">technical.size</str> <str name="f.technical.size.facet.range.start">0</str> 
+				<str name="f.technical.size.facet.range.end">40000000</str> <str name="f.technical.size.facet.range.gap">1000</str> 
+				<str name="facet.range">lifecycle.date.author</str> <str name="f.lifecycle.date.author.facet.range.start">NOW/YEAR-10YEARS</str> 
+				<str name="f.lifecycle.date.author.facet.range.end">NOW/YEAR</str> <str name="f.lifecycle.date.author.facet.range.gap">+1YEAR</str> 
+				<str name="facet.range">educational.typicallearningtime</str> <str name="f.educational.typicallearningtime.facet.range.start">2012-12-12T00:00:00Z</str> 
+				<str name="f.educational.typicallearningtime.facet.range.end">2012-12-12T12:00:00Z</str> 
+				<str name="f.educational.typicallearningtime.facet.range.gap">+30MINUTES</str> -->
 			<!-- highlighting -->
 			<str name="hl">on</str>
 			<str name="hl.fl">general.text</str>

@@ -26,25 +26,26 @@
    http://wiki.apache.org/solr/CoreAdmin
 -->
 
-<!--
- All (relative) paths are relative to the installation path
-  
-  persistent: Save changes made via the API to this file
-  sharedLib: path to a lib directory that will be shared across all cores
--->
-<solr persistent="false">
-	<!-- by default, this is 50 @ WARN
-  <logging enabled="true">
-  	<watcher size="100" threshold="INFO" />
-  </logging>
-   -->
+<solr>
 
-  <!--
-  adminPath: RequestHandler path to manage cores.  
-    If 'null' (or absent), cores will not be manageable via request handler
-  -->
-  <cores adminPath="/admin/cores" defaultCoreName="apiscol-resources" host="${host:}" hostPort="${jetty.port:}" >
-    <core name="apiscol-resources" instanceDir="resources" dataDir="resources-data"/>
-    <core name="apiscol-metadata" instanceDir="metadata" dataDir="metadata-data"  />
-  </cores>
+  <solrcloud>
+
+    <str name="host">${host:}</str>
+    <int name="hostPort">${jetty.port:8983}</int>
+    <str name="hostContext">${hostContext:solr}</str>
+
+    <bool name="genericCoreNodeNames">${genericCoreNodeNames:true}</bool>
+
+    <int name="zkClientTimeout">${zkClientTimeout:30000}</int>
+    <int name="distribUpdateSoTimeout">${distribUpdateSoTimeout:600000}</int>
+    <int name="distribUpdateConnTimeout">${distribUpdateConnTimeout:60000}</int>
+
+  </solrcloud>
+
+  <shardHandlerFactory name="shardHandlerFactory"
+    class="HttpShardHandlerFactory">
+    <int name="socketTimeout">${socketTimeout:600000}</int>
+    <int name="connTimeout">${connTimeout:60000}</int>
+  </shardHandlerFactory>
+
 </solr>

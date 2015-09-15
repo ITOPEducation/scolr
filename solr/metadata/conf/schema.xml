@@ -111,8 +111,7 @@
 					articles="lang/contractions_fr.txt" />
 				<filter class="solr.LowerCaseFilterFactory" />
 				<filter class="solr.StopFilterFactory" ignoreCase="true"
-					words="lang/stopwords_fr.txt" format="snowball"
-					enablePositionIncrements="true" />
+					words="lang/stopwords_fr.txt" format="snowball" />
 				<filter class="solr.FrenchLightStemFilterFactory" />
 				<!-- less aggressive: <filter class="solr.FrenchMinimalStemFilterFactory"/> -->
 				<!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" 
@@ -130,7 +129,7 @@
 			</analyzer>
 			<analyzer type="query">
 				<charFilter class="solr.PatternReplaceCharFilterFactory"
-					pattern="(~\d(\.)?(\d)*)|(\*)" replaceWith="" />
+					pattern="(~\d(\.)?(\d)*)|(\*)" replacement="" />
 				<tokenizer class="solr.StandardTokenizerFactory" />
 				<filter class="solr.ElisionFilterFactory" ignoreCase="true"
 					articles="lang/contractions_fr.txt" />

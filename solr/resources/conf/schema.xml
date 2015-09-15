@@ -31,7 +31,7 @@
 			multiValued="true" />
 		<field name="category" type="text_fr" indexed="false" stored="false"
 			multiValued="true" />
-			<!-- Needs to be stored -->
+		<!-- Needs to be stored -->
 		<field name="content_type" type="string" indexed="true" stored="true"
 			multiValued="true" />
 		<field name="links" type="string" indexed="false" stored="false"
@@ -79,8 +79,7 @@
 					articles="lang/contractions_fr.txt" />
 				<filter class="solr.LowerCaseFilterFactory" />
 				<filter class="solr.StopFilterFactory" ignoreCase="true"
-					words="lang/stopwords_fr.txt" format="snowball"
-					enablePositionIncrements="true" />
+					words="lang/stopwords_fr.txt" format="snowball" />
 				<filter class="solr.FrenchLightStemFilterFactory" />
 			</analyzer>
 		</fieldType>
@@ -95,7 +94,7 @@
 			</analyzer>
 			<analyzer type="query">
 				<charFilter class="solr.PatternReplaceCharFilterFactory"
-					pattern="(~\d(\.)?(\d)*)|(\*)" replaceWith="" />
+					pattern="(~\d(\.)?(\d)*)|(\*)" replacement="" />
 				<tokenizer class="solr.StandardTokenizerFactory" />
 				<filter class="solr.ElisionFilterFactory" ignoreCase="true"
 					articles="lang/contractions_fr.txt" />

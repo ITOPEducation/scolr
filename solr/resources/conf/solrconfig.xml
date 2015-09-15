@@ -13,24 +13,30 @@
 
 <config>
 
-	<luceneMatchVersion>LUCENE_40</luceneMatchVersion>
-	<!-- All directories and paths are resolved relative the instanceDir. -->
-	<lib dir="../../dist/" regex="apache-solr-cell-\d.*\.jar" />
-	<lib dir="../../contrib/extraction/lib" regex=".*\.jar" />
+	<luceneMatchVersion>5.3.0</luceneMatchVersion>
 
-	<lib dir="../../dist/" regex="apache-solr-clustering-\d.*\.jar" />
-	<lib dir="../../contrib/clustering/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/contrib/extraction/lib" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-cell-\d.*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-dataimporthandler-\d.*\.jar" />
 
-	<lib dir="../../dist/" regex="apache-solr-langid-\d.*\.jar" />
-	<lib dir="../../contrib/langid/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/contrib/clustering/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-clustering-\d.*\.jar" />
 
-	<lib dir="../../dist/" regex="apache-solr-velocity-\d.*\.jar" />
-	<lib dir="../../contrib/velocity/lib" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/contrib/langid/lib/" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-langid-\d.*\.jar" />
 
-<!-- 	<dataDir>${solr.data.dir:}</dataDir>
- -->
+	<lib dir="${solr.install.dir}/contrib/velocity/lib" regex=".*\.jar" />
+	<lib dir="${solr.install.dir}/dist/" regex="solr-velocity-\d.*\.jar" />
+	<!-- an exact 'path' can be used instead of a 'dir' to specify a specific 
+		jar file. This will cause a serious error to be logged if it can't be loaded. -->
+	<!-- <lib path="../a-jar-that-does-not-exist.jar" /> -->
+
+	<!-- Data Directory Used to specify an alternate directory to hold all index 
+		data other than the default ./data under the Solr home. If replication is 
+		in use, this should match the replication configuration. -->
+	<dataDir>${solr.data.dir:}</dataDir>
 	<directoryFactory name="DirectoryFactory"
-		class="${solr.directoryFactory:solr.StandardDirectoryFactory}" />
+		class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}" />
 
 	<indexConfig>
 
@@ -161,10 +167,7 @@
 
 		<!-- Enables a transaction log, currently used for real-time get. "dir" 
 			- the target directory for transaction logs, defaults to the solr data directory. -->
-		<!-- <updateLog>
-			<str name="dir">${solr.data.dir:../../../data}</str>
-		</updateLog>
- -->
+		<!-- <updateLog> <str name="dir">${solr.data.dir:../../../data}</str> </updateLog> -->
 
 	</updateHandler>
 
