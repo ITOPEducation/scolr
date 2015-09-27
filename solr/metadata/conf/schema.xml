@@ -6,8 +6,8 @@
 		<field name="general.text" type="text_fr" indexed="true" stored="true"
 			required="true" multiValued="true" termVectors="true" termPositions="true"
 			termOffsets="true" />
-		<field name="general.title" type="text_fr" indexed="true"
-			stored="false" required="true" multiValued="false" />
+		<field name="general.title" type="string" indexed="true" stored="false"
+			required="true" multiValued="false" />
 		<field name="general.language" type="string" indexed="true"
 			stored="true" required="true" multiValued="true" />
 		<field name="general.description" type="text_fr" indexed="true"
@@ -23,7 +23,7 @@
 		<field name="technical.format" type="string" indexed="true"
 			stored="false" multiValued="true" />
 		<field name="technical.size" type="tint" indexed="true" stored="true"
-			multiValued="false" required="false"/>
+			multiValued="false" required="false" />
 		<field name="technical.installationremarks" type="text_fr"
 			indexed="true" stored="false" multiValued="false" />
 		<field name="technical.otherplatformrequirements" type="text_fr"
