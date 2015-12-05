@@ -16,6 +16,8 @@
 			stored="false" multiValued="true" />
 		<field name="general.coverage" type="text_fr" indexed="true"
 			stored="false" multiValued="true" />
+		<field name="general.aggregationlevel" type="tint" indexed="true"
+			stored="true" multiValued="false" required="false" />
 		<field name="general.generalresourcetype" type="string" indexed="true"
 			stored="false" multiValued="true" />
 		<field name="lifecycle.status" type="string" indexed="true"

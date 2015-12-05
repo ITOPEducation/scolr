@@ -61,6 +61,13 @@
 			<xsl:value-of select="scolomfr:value" />
 		</xsl:element>
 	</xsl:template>
+	<xsl:template match="lom:general/lom:aggregationLevel">
+		<xsl:element name="field">
+			<xsl:attribute name="name"><xsl:value-of
+				select="'general.aggregationlevel'"></xsl:value-of></xsl:attribute>
+			<xsl:value-of select="lom:value" />
+		</xsl:element>
+	</xsl:template>
 	<xsl:template match="lom:lifeCycle/lom:status">
 		<xsl:element name="field">
 			<xsl:attribute name="name"><xsl:value-of select="'lifecycle.status'"></xsl:value-of></xsl:attribute>

@@ -418,6 +418,7 @@
 				cf smiley/pugh p.180 -->
 			<str name="facet">on</str>
 			<str name="facet.field">general.generalresourcetype</str>
+			<str name="facet.field">general.aggregationlevel</str>
 			<str name="f.general.generalresourcetype.facet.method">enum</str>
 			<str name="facet.field">lifecycle.status</str>
 			<str name="f.lifecycle.status.facet.method">enum</str>
