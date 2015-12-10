@@ -476,8 +476,8 @@
 			<str name="hl">on</str>
 			<str name="hl.fl">general.text</str>
 			<str name="hl.encoder">html</str>
-			<str name="hl.simple.pre">&lt;b&gt;</str>
-			<str name="hl.simple.post">&lt;/b&gt;</str>
+			<str name="hl.simple.pre">&lt;em&gt;</str>
+			<str name="hl.simple.post">&lt;/em&gt;</str>
 			<!-- spellcheck -->
 			<str name="spellcheck">on</str>
 			<str name="spellcheck.extendedResults">false</str>
