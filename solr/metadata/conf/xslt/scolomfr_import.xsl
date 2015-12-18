@@ -78,7 +78,7 @@
 		<xsl:variable name="role" select="lom:role/lom:value" />
 		<xsl:apply-templates select="lom:entity">
 			<xsl:with-param name="role">
-				<xsl:value-of select="$role"></xsl:value-of>
+				<xsl:value-of select="translate($role, ' ','_' )"></xsl:value-of>
 			</xsl:with-param>
 			<xsl:with-param name="type">
 				<xsl:value-of select="'lifecycle'"></xsl:value-of>
@@ -86,7 +86,7 @@
 		</xsl:apply-templates>
 		<xsl:apply-templates select="lom:date">
 			<xsl:with-param name="role">
-				<xsl:value-of select="$role"></xsl:value-of>
+				<xsl:value-of select="translate($role, ' ','_' )"></xsl:value-of>
 			</xsl:with-param>
 			<xsl:with-param name="type">
 				<xsl:value-of select="'lifecycle'"></xsl:value-of>

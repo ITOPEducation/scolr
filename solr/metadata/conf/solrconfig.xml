@@ -463,6 +463,10 @@
 			<str name="facet.field">accessibility restrictions-taxon</str>
 			<str name="facet.field">type_de_diffusion-taxon</str>
 			<str name="facet.field">public_cible_détaillé-taxon</str>
+			<str name="facet.field">lifecycle.contributor.auteur</str>
+			<str name="facet.field">lifecycle.contributor.contributeur</str>
+			<str name="facet.field">lifecycle.contributor.éditeur</str>
+			<str name="facet.field">lifecycle.contributor.concepteur_pédagogique</str>
 			<str name="facet.mincount">1</str>
 			<!-- TODO review range facetting parameters -->
 			<!-- <str name="facet.range">technical.size</str> <str name="f.technical.size.facet.range.start">0</str> 
