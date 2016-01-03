@@ -142,6 +142,11 @@
 		</xsl:element>
 	</xsl:template>
 	<xsl:template match="lom:technical/lom:location">
+		<xsl:element name="field">
+			<xsl:attribute name="name"><xsl:value-of
+				select="'technical.location'"></xsl:value-of></xsl:attribute>
+			<xsl:value-of select="." />
+		</xsl:element>
 	</xsl:template>
 	<xsl:template match="lom:technical/lom:format">
 		<xsl:element name="field">

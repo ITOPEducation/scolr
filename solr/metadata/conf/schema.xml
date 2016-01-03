@@ -24,6 +24,8 @@
 			stored="false" multiValued="false" required="false" />
 		<field name="technical.format" type="string" indexed="true"
 			stored="false" multiValued="true" />
+		<field name="technical.location" type="string" indexed="true"
+			stored="false" multiValued="false" />
 		<field name="technical.size" type="tint" indexed="true" stored="true"
 			multiValued="false" required="false" />
 		<field name="technical.installationremarks" type="text_fr"
