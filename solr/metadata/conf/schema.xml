@@ -6,6 +6,8 @@
 		<field name="general.text" type="text_fr" indexed="true" stored="true"
 			required="true" multiValued="true" termVectors="true" termPositions="true"
 			termOffsets="true" />
+		<field name="general.label" type="string_with_synonyms" indexed="true"
+			stored="true" multiValued="true" />
 		<field name="general.title" type="string" indexed="true" stored="false"
 			required="true" multiValued="false" />
 		<field name="general.language" type="string" indexed="true"
@@ -16,10 +18,10 @@
 			stored="false" multiValued="true" />
 		<field name="general.coverage" type="text_fr" indexed="true"
 			stored="false" multiValued="true" />
-		<field name="general.aggregationlevel" type="tint" indexed="true"
-			stored="true" multiValued="false" required="false" />
+		<field name="general.aggregationlevel" type="string" indexed="true"
+			stored="false" multiValued="false" required="false" />
 		<field name="general.generalresourcetype" type="string" indexed="true"
-			stored="false" multiValued="true" />
+			stored="true" multiValued="true" />
 		<field name="lifecycle.status" type="string" indexed="true"
 			stored="false" multiValued="false" required="false" />
 		<field name="technical.format" type="string" indexed="true"
@@ -82,6 +84,7 @@
 	<copyField source="educational.description" dest="general.text" />
 	<copyField source="rights.description" dest="general.text" />
 	<copyField source="relation.resource.description" dest="general.text" />
+	<copyField source="general.generalresourcetype" dest="general.label" />
 	<copyField source="general.title" dest="suggest" />
 	<copyField source="general.description" dest="suggest" />
 	<copyField source="general.keyword" dest="suggest" />
@@ -95,6 +98,16 @@
 
 		<fieldType name="string" class="solr.StrField"
 			sortMissingLast="true" />
+
+		<fieldType name="string_with_synonyms" class="solr.TextField"
+			sortMissingLast="true" omitNorms="true">
+			<analyzer type="index">
+				<tokenizer class="solr.KeywordTokenizerFactory" />
+				<filter class="solr.SynonymFilterFactory" synonyms="altlabels.txt"
+					ignoreCase="true" expand="true" />
+
+			</analyzer>
+		</fieldType>
 
 		<fieldType name="vcard" class="solr.TextField"
 			sortMissingLast="false">

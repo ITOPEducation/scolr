@@ -408,7 +408,7 @@
 			<str name="echoParams">explicit</str>
 			<str name="wt">xml</str>
 			<str name="defType">edismax</str>
-			<str name="df">general.text</str>
+			<str name="qf">general.text general.label</str>
 			<str name="mm">100%</str>
 			<str name="q.alt">*:*</str>
 			<str name="rows">10</str>

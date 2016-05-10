@@ -59,8 +59,9 @@
 			<xsl:attribute name="name"><xsl:value-of
 				select="'general.generalresourcetype'"></xsl:value-of></xsl:attribute>
 			<xsl:value-of select="scolomfr:value" />
-		</xsl:element>
+		</xsl:element>		
 	</xsl:template>
+
 	<xsl:template match="lom:general/lom:aggregationLevel">
 		<xsl:element name="field">
 			<xsl:attribute name="name"><xsl:value-of
