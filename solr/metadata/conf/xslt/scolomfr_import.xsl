@@ -161,7 +161,7 @@
 			<xsl:if test=". = ''">
 				<xsl:value-of select="'0'" />
 			</xsl:if>
-			<xsl:value-of select="." />
+			<xsl:value-of select="normalize-space(.)" />
 
 		</xsl:element>
 	</xsl:template>
