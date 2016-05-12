@@ -76,7 +76,7 @@
 		</xsl:element>
 	</xsl:template>
 	<xsl:template match="lom:lifeCycle/lom:contribute">
-		<xsl:variable name="role" select="lom:role/lom:value" />
+		<xsl:variable name="role" select="lom:role/lom:label" />
 		<xsl:apply-templates select="lom:entity">
 			<xsl:with-param name="role">
 				<xsl:value-of select="translate($role, ' ','_' )"></xsl:value-of>
