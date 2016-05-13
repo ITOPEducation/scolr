@@ -105,6 +105,17 @@
 			</xsl:with-param>
 		</xsl:apply-templates>
 	</xsl:template>
+	<xsl:template match="lom:annotation">
+		<xsl:variable name="role" select="'author'" />
+		<xsl:apply-templates select="lom:entity">
+			<xsl:with-param name="role">
+				<xsl:value-of select="$role"></xsl:value-of>
+			</xsl:with-param>
+			<xsl:with-param name="type">
+				<xsl:value-of select="'annotation'"></xsl:value-of>
+			</xsl:with-param>
+		</xsl:apply-templates>
+	</xsl:template>
 	<xsl:template match="lom:entity">
 		<xsl:param name="role" />
 		<xsl:param name="type" />

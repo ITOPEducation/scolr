@@ -62,10 +62,12 @@
 			indexed="true" stored="false" multiValued="true" />
 		<field name="educational.typicallearningtime" type="duration"
 			indexed="true" stored="false" multiValued="false" />
+		<field name="annotation.contributor.author" type="vcard"
+			indexed="true" stored="true" multiValued="true" />
 		<dynamicField name="*-taxon" type="string" indexed="true"
 			stored="true" multiValued="true" />
 		<dynamicField name="lifecycle.contributor.*" type="vcard"
-			indexed="true" stored="true" multiValued="true" />
+			indexed="true" stored="true" multiValued="true" />		
 		<dynamicField name="metameta.contributor.*" type="vcard"
 			indexed="true" stored="true" multiValued="true" />
 		<dynamicField name="lifecycle.date.*" type="tdate"
