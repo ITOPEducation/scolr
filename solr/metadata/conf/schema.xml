@@ -67,7 +67,7 @@
 		<dynamicField name="*-taxon" type="string" indexed="true"
 			stored="true" multiValued="true" />
 		<dynamicField name="lifecycle.contributor.*" type="vcard"
-			indexed="true" stored="true" multiValued="true" />		
+			indexed="true" stored="true" multiValued="true" />
 		<dynamicField name="metameta.contributor.*" type="vcard"
 			indexed="true" stored="true" multiValued="true" />
 		<dynamicField name="lifecycle.date.*" type="tdate"
@@ -87,8 +87,12 @@
 	<copyField source="rights.description" dest="general.text" />
 	<copyField source="relation.resource.description" dest="general.text" />
 	<copyField source="general.generalresourcetype" dest="general.label" />
-	<copyField source="educational.intendedenduserrole" dest="general.label" />
 	<copyField source="general.aggregationlevel" dest="general.label" />
+	<copyField source="educational.intendedenduserrole" dest="general.label" />
+	<copyField source="educational.learningresourcetype" dest="general.label" />
+	<copyField source="educational.activity" dest="general.label" />
+	<copyField source="educational.place" dest="general.label" />
+	<copyField source="educational.educationalmethod" dest="general.label" />
 	<copyField source="general.title" dest="suggest" />
 	<copyField source="general.description" dest="suggest" />
 	<copyField source="general.keyword" dest="suggest" />
