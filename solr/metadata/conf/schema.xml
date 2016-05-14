@@ -87,6 +87,7 @@
 	<copyField source="rights.description" dest="general.text" />
 	<copyField source="relation.resource.description" dest="general.text" />
 	<copyField source="general.generalresourcetype" dest="general.label" />
+	<copyField source="educational.intendedenduserrole" dest="general.label" />
 	<copyField source="general.aggregationlevel" dest="general.label" />
 	<copyField source="general.title" dest="suggest" />
 	<copyField source="general.description" dest="suggest" />
