@@ -59,7 +59,7 @@
 			<xsl:attribute name="name"><xsl:value-of
 				select="'general.generalresourcetype'"></xsl:value-of></xsl:attribute>
 			<xsl:value-of select="scolomfr:value" />
-		</xsl:element>		
+		</xsl:element>
 	</xsl:template>
 
 	<xsl:template match="lom:general/lom:aggregationLevel">
@@ -371,7 +371,8 @@
 		<xsl:param name="natural" />
 		<xsl:choose>
 			<!--Les deux sont admis par http://www.lom-fr.fr/scolomfr/fileadmin/user_upload/fiches_vocabulaire/2011-06-20_027-Droitauteur_vdex.xml -->
-			<xsl:when test="($natural='yes') or ($natural='oui')">
+			<xsl:when
+				test="starts-with($natural,'http://data.education.fr/voc/scolomfr/concept/yes')">
 				<xsl:value-of select="'true'" />
 			</xsl:when>
 			<xsl:otherwise>
