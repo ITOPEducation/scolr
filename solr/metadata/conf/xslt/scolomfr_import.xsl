@@ -6,7 +6,7 @@
 		encoding="UTF-8" indent="yes" />
 	<!-- Define user language here : it will be used to select a langstring 
 		value -->
-	<xsl:variable name="user.language" select="'fr'" />
+	<xsl:variable name="user.language" select="'http://id.loc.gov/vocabulary/iso639-1/fr'" />
 	<!-- Start point -->
 	<xsl:template match="/lom:lom">
 		<add>
