@@ -6,7 +6,8 @@
 		encoding="UTF-8" indent="yes" />
 	<!-- Define user language here : it will be used to select a langstring 
 		value -->
-	<xsl:variable name="user.language" select="'http://id.loc.gov/vocabulary/iso639-1/fr'" />
+	<xsl:variable name="user.language"
+		select="'http://id.loc.gov/vocabulary/iso639-1/fr'" />
 	<!-- Start point -->
 	<xsl:template match="/lom:lom">
 		<add>
@@ -319,7 +320,8 @@
 		<xsl:element name="field">
 			<xsl:attribute name="name"><xsl:value-of
 				select="translate($fieldname,' ','_')"></xsl:value-of></xsl:attribute>
-			<xsl:value-of select="concat($source,'!_!',$taxonid,'(__',$label,'__)')" />
+			<xsl:value-of
+				select="concat($source,'!_!',$taxonid,'(__',normalize-space($label),'__)')" />
 		</xsl:element>
 		<xsl:apply-templates select="following-sibling::lom:taxon[1]">
 			<xsl:with-param name="purpose" select="$purpose" />
