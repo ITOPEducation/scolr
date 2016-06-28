@@ -148,7 +148,8 @@
 
 
 	</xsl:template>
-	<xsl:template match="lom:metaMetadata/lom:identifier">
+	<xsl:template
+		match="lom:metaMetadata/lom:identifier[lom:catalog='URI']">
 		<xsl:element name="field">
 			<xsl:attribute name="name"><xsl:value-of select="'id'"></xsl:value-of></xsl:attribute>
 			<xsl:value-of select="lom:entry" />
