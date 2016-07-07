@@ -148,8 +148,7 @@
 
 
 	</xsl:template>
-	<xsl:template
-		match="lom:metaMetadata/lom:identifier[lom:catalog='URI']">
+	<xsl:template match="lom:metaMetadata/lom:identifier[lom:catalog='URI']">
 		<xsl:element name="field">
 			<xsl:attribute name="name"><xsl:value-of select="'id'"></xsl:value-of></xsl:attribute>
 			<xsl:value-of select="lom:entry" />
@@ -323,6 +322,11 @@
 				select="translate($fieldname,' ','_')"></xsl:value-of></xsl:attribute>
 			<xsl:value-of
 				select="concat($source,'!_!',$taxonid,'(__',normalize-space($label),'__)')" />
+		</xsl:element>
+		<xsl:element name="field">
+			<xsl:attribute name="name"><xsl:value-of
+				select="'classification.label'"></xsl:value-of></xsl:attribute>
+			<xsl:value-of select="normalize-space($label)"></xsl:value-of>
 		</xsl:element>
 		<xsl:apply-templates select="following-sibling::lom:taxon[1]">
 			<xsl:with-param name="purpose" select="$purpose" />

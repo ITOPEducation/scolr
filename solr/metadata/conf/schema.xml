@@ -64,6 +64,8 @@
 			indexed="true" stored="false" multiValued="false" />
 		<field name="annotation.contributor.author" type="vcard"
 			indexed="true" stored="true" multiValued="true" />
+		<field name="classification.label" type="text_fr" indexed="true"
+			stored="false" multiValued="true" />
 		<dynamicField name="*-taxon" type="string" indexed="true"
 			stored="true" multiValued="true" />
 		<dynamicField name="lifecycle.contributor.*" type="vcard"
@@ -88,6 +90,7 @@
 	<copyField source="relation.resource.description" dest="general.text" />
 	<copyField source="general.generalresourcetype" dest="general.label" />
 	<copyField source="general.aggregationlevel" dest="general.label" />
+	<copyField source="classification.label" dest="general.text" />
 	<copyField source="educational.intendedenduserrole" dest="general.label" />
 	<copyField source="educational.learningresourcetype" dest="general.label" />
 	<copyField source="educational.activity" dest="general.label" />
@@ -130,7 +133,7 @@
 
 		<fieldType name="text_fr" class="solr.TextField"
 			positionIncrementGap="100" autoGeneratePhraseQueries="true">
-			<analyzer>
+			<analyzer type="query">
 				<tokenizer class="solr.StandardTokenizerFactory" />
 				<filter class="solr.ElisionFilterFactory" ignoreCase="true"
 					articles="lang/contractions_fr.txt" />
@@ -138,9 +141,18 @@
 				<filter class="solr.StopFilterFactory" ignoreCase="true"
 					words="lang/stopwords_fr.txt" format="snowball" />
 				<filter class="solr.FrenchLightStemFilterFactory" />
-				<!-- less aggressive: <filter class="solr.FrenchMinimalStemFilterFactory"/> -->
-				<!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" 
-					language="French"/> -->
+
+			</analyzer>
+			<analyzer type="index">
+				<tokenizer class="solr.StandardTokenizerFactory" />
+				<filter class="solr.ElisionFilterFactory" ignoreCase="true"
+					articles="lang/contractions_fr.txt" />
+				<filter class="solr.LowerCaseFilterFactory" />
+				<filter class="solr.StopFilterFactory" ignoreCase="true"
+					words="lang/stopwords_fr.txt" format="snowball" />
+				<filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt"
+					ignoreCase="true" expand="true" />
+				<filter class="solr.FrenchLightStemFilterFactory" />
 			</analyzer>
 		</fieldType>
 		<fieldType name="suggestion_fr" class="solr.TextField"
