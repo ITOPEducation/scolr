@@ -3,6 +3,8 @@
 	<fields>
 		<field name="id" type="string" indexed="true" stored="true"
 			required="true" multiValued="false" />
+		<dynamicField name="general.identifier.*" type="string"
+			indexed="true" stored="true" multiValued="true" />
 		<field name="general.text" type="text_fr" indexed="true" stored="true"
 			required="true" multiValued="true" termVectors="true" termPositions="true"
 			termOffsets="true" />

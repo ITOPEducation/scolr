@@ -16,8 +16,18 @@
 			</doc>
 		</add>
 	</xsl:template>
-	<!-- Identifier is a technical element, will not be indexed -->
-	<xsl:template match="lom:general/lom:identifier" />
+	<!-- Identifier is a technical element, will not be indexed except if ARK -->
+	<xsl:template match="lom:general/lom:identifier">
+		<xsl:variable name="cataloglowercased"
+			select="translate(lom:catalog, 'ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞŸŽŠ‌​Œ', 'abcdefghijklmnopqrstuvwxyzàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿžš‌​œ')"></xsl:variable>
+		<xsl:variable name="fieldname"
+			select="concat('general.identifier.',$cataloglowercased)"></xsl:variable>
+		<xsl:element name="field">
+			<xsl:attribute name="name"><xsl:value-of select="$fieldname"></xsl:value-of></xsl:attribute>
+			<xsl:value-of select="lom:entry" />
+		</xsl:element>
+	</xsl:template>
+
 	<!-- Title will be indexed as full text -->
 	<xsl:template match="lom:general/lom:title">
 		<xsl:element name="field">
